@@ -493,6 +493,33 @@ function Play(i, v)
         end;
     end;
 end;
+
+game:GetService('UserInputService').InputBegan:Connect(function(v, i)
+    if not i and v.UserInputType == Enum.UserInputType.Keyboard then
+        if v.KeyCode == Enum.KeyCode.O and Posing == false then
+            Play(2659098182, true);
+            Posing = true;
+            repeat
+                game:GetService('RunService').Heartbeat:Wait()
+                local Pose = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Godlike)
+                if not Pose.IsPlaying then
+                    Pose:Play();
+                    Pose.Looped = false;
+                    Pose:AdjustSpeed(1);
+                end;
+            until Posing == false;
+            game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
+            for _, v in pairs(game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):GetPlayingAnimationTracks()) do
+                if (v.Animation.AnimationId:match('rbxassetid')) then
+                    v:Stop();
+                end;
+            end;
+        game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed"):Destroy()
+        elseif v.KeyCode == Enum.KeyCode.P and Posing == true then
+            Posing = false;
+        end;
+    end;
+end); 
 end)
 FunPage.AddLabel("Toggles!")
 FunPage.AddButton("Godv1", function()
