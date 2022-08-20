@@ -457,7 +457,7 @@ game:GetService('UserInputService').InputBegan:Connect(function(v, i)
 end); 
 end)
 FunPage.AddButton("Supercharge [O]", function()
-    --supercharge
+     --supercharge
 if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
     game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2'):Destroy();
 end;
@@ -501,7 +501,7 @@ game:GetService('UserInputService').InputBegan:Connect(function(v, i)
             Posing = true;
             repeat
                 game:GetService('RunService').Heartbeat:Wait()
-                local Pose = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Godlike)
+                local Pose = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(supercharge)
                 if not Pose.IsPlaying then
                     Pose:Play();
                     Pose.Looped = false;
@@ -515,7 +515,7 @@ game:GetService('UserInputService').InputBegan:Connect(function(v, i)
                 end;
             end;
         game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed"):Destroy()
-        elseif v.KeyCode == Enum.KeyCode.P and Posing == true then
+        elseif v.KeyCode == Enum.KeyCode.O and Posing == true then
             Posing = false;
         end;
     end;
