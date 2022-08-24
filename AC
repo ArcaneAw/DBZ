@@ -643,3 +643,8 @@ FunPage.AddButton("Elder", function()
 	Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=845396048"
 	game.Players.LocalPlayer.Character.Humanoid.Jump = true
 end)
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/JOJOGIO/DH-GAMING/main/Voiceline%20Framework'))()
+
+DetectVoiceline(539649706, ":kill!") --5721273154 4961025694
+DefaultVoiceline(5153845714, "/e sus", "🤨🤨", 0) --/ If you said Yare Yare Daze.. will play ID.
