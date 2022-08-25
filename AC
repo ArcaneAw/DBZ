@@ -235,68 +235,19 @@ play(153613030, true, true)
 			end)
 end)
 FunPage.AddButton("DBZ-script", function()
-	if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
-		game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2'):Destroy();
-	end;
-	
-	local Posing = false;
-	local Key = 0;
-	
-	local Powerlast = Instance.new('Animation', game:GetService('ReplicatedStorage'):FindFirstChild('ClientAnimations'));
-	Powerlast.AnimationId = 'rbxassetid://4841403964';
-	Powerlast.Name = 'Powerlast';
-	
-	function Play(i, v)
-		if game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack'):FindFirstChild('[Boombox]') then
-			local Tool = nil;
-			if game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Tool') and v == true then
-				Tool = game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Tool')
-				game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Tool').Parent = game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack');
-			end;
-			game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack'):FindFirstChild('[Boombox]').Parent = game:GetService('Players').LocalPlayer.Character;
-			game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('Boombox', i);
-			game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]').RequiresHandle = false;
-			if game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]'):FindFirstChild('Handle') then
-				game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]'):FindFirstChild('Handle'):Destroy();
-			end
-			game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]').Parent = game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack')
-			if game:GetService('Players').LocalPlayer:FindFirstChildOfClass('PlayerGui'):FindFirstChild('MainScreenGui'):FindFirstChild('BoomboxFrame') then
-				game:GetService('Players').LocalPlayer:FindFirstChildOfClass('PlayerGui'):FindFirstChild('MainScreenGui'):FindFirstChild('BoomboxFrame').Visible = false;
-			end;
-			if Tool ~= true then
-				if Tool then
-					Tool.Parent = game:GetService('Players').LocalPlayer.Character
-				end;
-			end;
-		end;
-	end;
-	
-	game:GetService('UserInputService').InputBegan:Connect(function(v, i)
-		if not i and v.UserInputType == Enum.UserInputType.Keyboard then
-			if v.KeyCode == Enum.KeyCode.Q and Posing == false then
-				Play(5689578119, true);
-				Posing = true;
-				repeat
-					game:GetService('RunService').Heartbeat:Wait()
-					local Pose = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Powerlast)
-					if not Pose.IsPlaying then
-						Pose:Play();
-						Pose.Looped = false;
-						Pose:AdjustSpeed(0.56);
-					end;
-				until Posing == false;
-				game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
-				for _, v in pairs(game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):GetPlayingAnimationTracks()) do
-					if (v.Animation.AnimationId:match('rbxassetid')) then
-						v:Stop();
-					end;
-				end;
-			game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed"):Destroy()
-			elseif v.KeyCode == Enum.KeyCode.Q and Posing == true then
-				Posing = false;
-			end;
-		end;
-	end); 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
+
+local mouse = game.Players.LocalPlayer:GetMouse()
+	mouse.KeyDown:connect(function(key)
+		if key == "q" then
+		    play(5689578119, true, true)
+			local Swing = Instance.new('Animation');
+			Swing.AnimationId = "rbxassetid://4841403964";
+			local ld = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Swing)
+			ld:Play()
+			ld:AdjustSpeed(0.4)
+		end
+	end)
 	
 	local OriginalKeyUpValue = 0
 	function StopAudio()
