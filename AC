@@ -520,7 +520,7 @@ FunPage.AddButton("Goku Aura [M]", function()
     game:GetService('UserInputService').InputBegan:Connect(function(v, i)
         if not i and v.UserInputType == Enum.UserInputType.Keyboard then
             if v.KeyCode == Enum.KeyCode.M and Posing == false then
-                Play(2659098182, true);
+                Play(, true);
                 Posing = true;
                 repeat
                     until
@@ -529,9 +529,9 @@ FunPage.AddButton("Goku Aura [M]", function()
                     if not Pose.IsPlaying then
                         Pose:Play();
                         Pose.Looped = false;
-                        Pose:AdjustSpeed(1.2);
+                        Pose:AdjustSpeed(1.6);
                     end;
-                    wait(3.2)
+                    wait(2.7)
                 Posing = false;
                 game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
                 for _, v in pairs(game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):GetPlayingAnimationTracks()) do
