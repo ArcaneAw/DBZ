@@ -54,7 +54,7 @@ local Library = UI.Load("DBZ")
 local FunPage = Library.AddPage("Fun!")
 
 FunPage.AddLabel("Fun!")
-FunPage.AddDropdown("None Chatted", {"Hey its me goku", "AAAAURA", "fly", "YOU'LL PAY FOR THAT", "Ultra Instinct Aura SFX", "MUI"}, function(Value)
+FunPage.AddDropdown("None Chatted", {"Hey its me goku", "fly", "YOU'LL PAY FOR THAT", "Ultra Instinct Aura SFX", "MUI"}, function(Value)
 	local LocalPlayer = game:GetService("Players").LocalPlayer
 	local OldChar = LocalPlayer.Character
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
@@ -76,11 +76,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main
 		Swing.AnimationId = "rbxassetid://4841397952"
 		local ld = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Swing)
 		ld:Play()
-	elseif Value == "AAAAURA" then
-		p(838152983)
 	elseif Value == "fly" then
 		p(4471125043)
         loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/Shazam/main/AC'))()
+		wait(2.4)
+		p(838152983)
     elseif Value == "YOU'LL PAY FOR THAT" then
 		p(4846014500)
     elseif Value == "Ultra Instinct Aura SFX" then
