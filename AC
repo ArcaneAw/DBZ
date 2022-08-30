@@ -520,7 +520,6 @@ FunPage.AddButton("Goku Aura [M]", function()
     game:GetService('UserInputService').InputBegan:Connect(function(v, i)
         if not i and v.UserInputType == Enum.UserInputType.Keyboard then
             if v.KeyCode == Enum.KeyCode.M and Posing == false then
-                Play(0, true);
                 Posing = true;
                 repeat
                     until
