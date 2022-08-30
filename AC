@@ -481,7 +481,7 @@ FunPage.AddButton("supercharge [O]", function()
     end);
 end)
 FunPage.AddButton("Goku Aura [M]", function()
-         if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
+if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
         game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2'):Destroy();
     end;
     
@@ -528,7 +528,7 @@ FunPage.AddButton("Goku Aura [M]", function()
                     if not Pose.IsPlaying then
                         Pose:Play();
                         Pose.Looped = false;
-                        Pose:AdjustSpeed(1.4);
+                        Pose:AdjustSpeed(1.2);
                     end;
                     wait(3)
                 Posing = false;
@@ -549,7 +549,7 @@ FunPage.AddButton("Goku Aura [M]", function()
         ["CHATBIND"] = {ENABLED = true, ON = "King Crimson!", OFF = "Desummon!"}, --/ Aura chat command.
         ["KEYBIND"] = "M", --/ Aura keybind.
         ["COLOR"] = "GRAY", --/ Current colors : DEFAULT, RED, BLACK, BLUE, LIME, WHITE, VIOLET, PURPLE, GREEN, CYAN, CRIMSON, GRAY
-        ["SOUND"] = {ENABLED = true, ON = 2661734130, OFF = 1085613132, DURING = 838152983}, --/ Plays the desired SFX when turning on/off/while aura.
+        ["SOUND"] = {ENABLED = true, ON = 2661734130, OFF = 1085613132, DURING = 9125351349}, --/ Plays the desired SFX when turning on/off/while aura.
         ["POWERS"] = {GRAVITY = true, SPEED = true}, --/ More to come..
         }
     }
