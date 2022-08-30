@@ -332,6 +332,32 @@ game:GetService('UserInputService').InputBegan:Connect(function(v, i)
             Posing = false;
         end;
     end;
+    
+            nolimit = true
+                local player = game.Players.LocalPlayer
+                local loopFunction = function()
+                    local Movement = game:GetService("Workspace").Players:WaitForChild(player.Name).BodyEffects.Movement
+                    local SlowDown = Movement:FindFirstChild('NoWalkSpeed') or Movement:FindFirstChild('ReduceWalk') or Movement:FindFirstChild('NoJumping')
+                    if SlowDown then
+                        SlowDown:Destroy()
+                    end
+                    local Reloading = player.Character:FindFirstChild('BodyEffects'):FindFirstChild('Reload')
+                    if Reloading then
+                        if Reloading.Value == true then
+                            Reloading.Value = false
+                        end
+                    end
+                end;
+                local Loop
+                local Start = function()
+                    Loop = game:GetService("RunService").Heartbeat:Connect(loopFunction);
+                end;
+                local Pause = function()
+                    Loop:Disconnect()
+                end;
+                Start()
+                repeat wait() until nolimit == false
+                Pause()
 end)
 FunPage.AddButton("Super x God [P]-[O]", function()
    --godlike
