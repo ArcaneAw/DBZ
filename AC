@@ -341,7 +341,8 @@ game:GetService('UserInputService').InputBegan:Connect(function(v, i)
             Posing = false;
         end;
     end;
-
+end)
+FunPage.AddButton("Super x God [O]-[P]", function()
     getgenv().PoseSetting = {
         ['Poses'] = { --/ Enabled = false [To disable]
             ["Pose1"] = {Enabled = false, Key = "Q"},
