@@ -528,9 +528,9 @@ FunPage.AddButton("Goku Aura [M]", function()
                     if not Pose.IsPlaying then
                         Pose:Play();
                         Pose.Looped = false;
-                        Pose:AdjustSpeed(1.6);
+                        Pose:AdjustSpeed(1.4);
                     end;
-                    wait(2.7)
+                    wait(3)
                 Posing = false;
                 game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
                 for _, v in pairs(game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):GetPlayingAnimationTracks()) do
