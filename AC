@@ -341,8 +341,40 @@ game:GetService('UserInputService').InputBegan:Connect(function(v, i)
             Posing = false;
         end;
     end;
+
+    getgenv().PoseSetting = {
+        ['Poses'] = { --/ Enabled = false [To disable]
+            ["Pose1"] = {Enabled = false, Key = "Q"},
+            ["Pose2"] = {Enabled = false, Key = "X"},
+            ["Pose3"] = {Enabled = false, Key = "B"},
+            ["Pose4"] = {Enabled = false, Key = "J"},
+            ["Pose5"] = {Enabled = false, Key = "U"},
+            ["Pose6"] = {Enabled = false, Key = "T"},
+            ["Pose7"] = {Enabled = true, Key = "K"},
+            ["Pose8"] = {Enabled = true, Key = "L"},
+        }
+    }
+    --//-----------------------------------------------------------------------------------------------\\--
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JOJOGIO/DH-GAMING/main/Pose%20Framework"))()
+    --//-----------------------------------------------------------------------------------------------\\--
+    
+    --//-----------------------------------------------------------------------------------------------\\--
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/Voicelines/main/AC"))()
+    --//-----------------------------------------------------------------------------------------------\\--
+    
+    KeybindVoiceline(9125351349, "K")
+    KeybindVoiceline(9125351349, "L")
+    DetectVoiceline(539649706, ":kill!")
+    DefaultVoiceline(5153845714, "/e sus", "🤨🤨", 0) 
+    
+    local mouse = game.Players.LocalPlayer:GetMouse()
+        mouse.KeyDown:connect(function(key)
+            if key == "e" then
+    game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
+            end
+        end)
 end)
-FunPage.AddButton("Godlike [P]", function()
+FunPage.AddButton("Super x God [O]-[P]", function()
    --godlike
    if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
     game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2'):Destroy();
@@ -410,8 +442,7 @@ game:GetService('UserInputService').InputBegan:Connect(function(v, i)
         end;
     end;
 end); 
-end)
-FunPage.AddButton("supercharge [O]", function()
+
      --supercharge
      if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
         game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2'):Destroy();
@@ -644,8 +675,3 @@ FunPage.AddToggle("Reach", nil, function(e)
             game:GetService('RunService'):UnbindFromRenderStep("Reach")
         end
 end)
-
-loadstring(game:HttpGet('https://raw.githubusercontent.com/JOJOGIO/DH-GAMING/main/Voiceline%20Framework'))()
-
-DetectVoiceline(539649706, ":kill!") --5721273154 4961025694
-DefaultVoiceline(5153845714, "/e sus", "🤨🤨", 0) --/ If you said Yare Yare Daze.. will play ID.
