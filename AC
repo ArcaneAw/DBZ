@@ -532,7 +532,6 @@ if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):Fi
                     end;
                     wait(3)
                 Posing = false;
-                game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
                 for _, v in pairs(game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):GetPlayingAnimationTracks()) do
                     if (v.Animation.AnimationId:match('rbxassetid')) then
                         v:Stop();
