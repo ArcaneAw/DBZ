@@ -650,10 +650,10 @@ if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):Fi
     end);
     getgenv().AuraSetting = {
     ['Made By JoJo#2222'] = {
-        ["CHATBIND"] = {ENABLED = true, ON = "King Crimson!", OFF = "Desummon!"}, --/ Aura chat command.
+        ["CHATBIND"] = {ENABLED = true, ON = "Aura", OFF = "Aura2"}, --/ Aura chat command.
         ["KEYBIND"] = "M", --/ Aura keybind.
-        ["COLOR"] = "GRAY", --/ Current colors : DEFAULT, RED, BLACK, BLUE, LIME, WHITE, VIOLET, PURPLE, GREEN, CYAN, CRIMSON, GRAY
-        ["SOUND"] = {ENABLED = true, ON = 2661734130, OFF = 1085613132, DURING = 9125351349}, --/ Plays the desired SFX when turning on/off/while aura.
+        ["COLOR"] = "WHITE", --/ Current colors : DEFAULT, RED, BLACK, BLUE, LIME, WHITE, VIOLET, PURPLE, GREEN, CYAN, CRIMSON, GRAY
+        ["SOUND"] = {ENABLED = true, ON = 2661580955, OFF = 1085613132, DURING = 9125351349}, --/ Plays the desired SFX when turning on/off/while aura.
         ["POWERS"] = {GRAVITY = true, SPEED = true}, --/ More to come..
         }
     }
