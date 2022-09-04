@@ -1,79 +1,3 @@
-NovaNoti("DBZ", "M for JoJo x DBZ Framework", 15)
-if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
-        game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2'):Destroy();
-    end;
-    
-    local Posing = false;
-    local Key = 0;
-    
-    local supercharge = Instance.new('Animation', game:GetService('ReplicatedStorage'):FindFirstChild('ClientAnimations'));
-    supercharge.AnimationId = 'rbxassetid://10478338114';
-    supercharge.Name = 'supercharge';
-    
-    function Play(i, v)
-        if game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack'):FindFirstChild('[Boombox]') then
-            local Tool = nil;
-            if game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Tool') and v == true then
-                Tool = game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Tool')
-                game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass('Tool').Parent = game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack');
-            end;
-            game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack'):FindFirstChild('[Boombox]').Parent = game:GetService('Players').LocalPlayer.Character;
-            game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('Boombox', i);
-            game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]').RequiresHandle = false;
-            if game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]'):FindFirstChild('Handle') then
-                game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]'):FindFirstChild('Handle'):Destroy();
-            end
-            game:GetService('Players').LocalPlayer.Character:FindFirstChild('[Boombox]').Parent = game:GetService('Players').LocalPlayer:FindFirstChildOfClass('Backpack')
-            if game:GetService('Players').LocalPlayer:FindFirstChildOfClass('PlayerGui'):FindFirstChild('MainScreenGui'):FindFirstChild('BoomboxFrame') then
-                game:GetService('Players').LocalPlayer:FindFirstChildOfClass('PlayerGui'):FindFirstChild('MainScreenGui'):FindFirstChild('BoomboxFrame').Visible = false;
-            end;
-            if Tool ~= true then
-                if Tool then
-                    Tool.Parent = game:GetService('Players').LocalPlayer.Character
-                end;
-            end;
-        end;
-    end;
-    
-    game:GetService('UserInputService').InputBegan:Connect(function(v, i)
-        if not i and v.UserInputType == Enum.UserInputType.Keyboard then
-            if v.KeyCode == Enum.KeyCode.M and Posing == false then
-                Posing = true;
-                repeat
-                    until
-                    game:GetService('RunService').Heartbeat:Wait()
-                    local Pose = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(supercharge)
-                    if not Pose.IsPlaying then
-                        Pose:Play();
-                        Pose.Looped = false;
-                        Pose:AdjustSpeed(1.2);
-                    end;
-                    wait(3)
-                Posing = false;
-                for _, v in pairs(game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):GetPlayingAnimationTracks()) do
-                    if (v.Animation.AnimationId:match('rbxassetid')) then
-                        v:Stop();
-                    end;
-                end;
-            game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed"):Destroy()
-            elseif v.KeyCode == Enum.KeyCode.M and Posing == true then
-                Posing = false;
-            end;
-        end;
-    end);
-    getgenv().AuraSetting = {
-    ['Made By JoJo#2222'] = {
-        ["CHATBIND"] = {ENABLED = true, ON = "Aura", OFF = "Aura2"}, --/ Aura chat command.
-        ["KEYBIND"] = "M", --/ Aura keybind.
-        ["COLOR"] = "WHITE", --/ Current colors : DEFAULT, RED, BLACK, BLUE, LIME, WHITE, VIOLET, PURPLE, GREEN, CYAN, CRIMSON, GRAY
-        ["SOUND"] = {ENABLED = true, ON = 2661580955, OFF = 1085613132, DURING = 9125351349}, --/ Plays the desired SFX when turning on/off/while aura.
-        ["POWERS"] = {GRAVITY = true, SPEED = true}, --/ More to come..
-        }
-    }
---//-------------------------------------------------------------------------------------------------------\\--
-loadstring(game:HttpGet("https://raw.githubusercontent.com/JOJOGIO/DH-GAMING/main/Stand%20Aura%20Framework"))()
---//-------------------------------------------------------------------------------------------------------\\--
-
 function NovaNoti(Title, Text, Icon, Duration)
 	game.StarterGui:SetCore("SendNotification", {
 		Title = Title;
@@ -89,7 +13,7 @@ function NovaNoti(Title, Text, Icon, Duration)
 	end)
 	cor()
 end
---// [ Nova Notification Anti Ban ]
+--// [ Notification Anti Ban ]
 local b = Instance.new("BindableFunction");
 function b.OnInvoke(Response)
 	if Response == 'Yes!' then
@@ -156,8 +80,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main
         loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/Shazam/main/AC'))()
 		wait(2.4)
 		p(838152983)
-    elseif Value == "YOU'LL PAY FOR THAT" then
-		p(4846014500)
     elseif Value == "Ultra Instinct Aura SFX" then
 		p(1825389232)
     elseif Value == "MUI" then
@@ -659,3 +581,9 @@ FunPage.AddToggle("Reach", nil, function(e)
             game:GetService('RunService'):UnbindFromRenderStep("Reach")
         end
 end)
+    local mouse = game.Players.LocalPlayer:GetMouse()
+        mouse.KeyDown:connect(function(key)
+            if key == "e" then
+    game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
+            end
+        end)
