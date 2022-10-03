@@ -13,39 +13,6 @@ function NovaNoti(Title, Text, Icon, Duration)
 	end)
 	cor()
 end
---// [ Notification Anti Ban ]
-local b = Instance.new("BindableFunction");
-function b.OnInvoke(Response)
-	if Response == 'Yes!' then
-		assert(getrawmetatable)
-		gmt = getrawmetatable(game)
-		setreadonly(gmt, false)
-		old = gmt.__namecall
-		gmt.__namecall = newcclosure(function(self, ...)
-			local args = {
-				...
-			}
-			if tostring(args[1]) == "TeleportDetect" then
-				return
-			elseif tostring(args[1]) == "CHECKER_1" then
-				return
-			elseif tostring(args[1]) == "CHECKER" then
-				return
-			end
-			return old(self, ...)
-		end)
-	end;
-end;
-game:GetService('StarterGui'):SetCore("SendNotification", {
-	Title = 'DBZ GUI';
-	Text = 'Would You Like To Enable Anti Ban?';
-	Icon = "rbxassetid://13857063";
-	Duration = 3.4028235e+38;
-	Callback = b;
-	Button1 = 'Yes!';
-	Button2 = 'No!';
-});
-
 
 local UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/twink"))()
 local Library = UI.Load("DBZ")
@@ -222,7 +189,155 @@ play(153613030, true, true)
 			end 
 			end)
 end)
-FunPage.AddButton("DBZ-script", function()
+FunPage.AddButton("DBZ-Kame", function()
+            OWNER = game:GetService("Players").LocalPlayer
+    RS = game:GetService("RunService")
+    TS = game:GetService("TweenService")
+    ANIM = OWNER.Character:WaitForChild("Animate")
+    
+    RS.RenderStepped:Connect(function()
+    local notifiedRespectFiltering = false
+		task.spawn(function()
+			pcall(function()
+				if OWNER and OWNER.Character and OWNER.Character:FindFirstChild("[Shotgun]") then		
+					OWNER.Character["[Shotgun]"].Handle.ShootSound.Playing = false
+				end
+			end)
+		end)
+    end)
+    
+	coroutine.wrap(function()
+	lp = game:GetService("Players").LocalPlayer
+	rs = game:GetService("RunService")
+	blaster = lp.Backpack:WaitForChild("[Shotgun]")
+	blaster.GripPos = Vector3.new(1, -0.1, 2.4)
+	blaster.TextureId = "rbxassetid://3536831972"
+	blaster.Handle.ShootBBGUI:Destroy()
+	blaster.Activated:Connect(function()
+		coroutine.wrap(function()
+			game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(0.2), {FieldOfView = 85}):Play()
+			wait(0.15)
+			game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(0.3), {FieldOfView = 70}):Play()
+		end)()
+		AnimPlay(2809419094,1.5)
+		game:GetService("VirtualInputManager"):SendKeyEvent(true,"R",false,game)
+		coroutine.wrap(function()
+			wait(0.125)
+			Play(131179973)--131179973
+			blaster.Parent = lp.Backpack
+			rs.Stepped:Wait()
+			blaster.Parent = lp.Character
+		end)()
+
+	end)
+	_G.InvisGun = true
+	local ValidGuns = {}
+	function AddGun(Name)
+		table.insert(ValidGuns, "["..Name.."]")
+	end
+	AddGun("Shotgun")
+	game.Players.LocalPlayer.Character.DescendantAdded:Connect(function(Desc)
+		for i, v in pairs(ValidGuns) do
+			if Desc.Name == v and _G.InvisGun == true then
+				Desc:FindFirstChild('Default'):Destroy()
+			end
+		end
+	end)
+	coroutine.wrap(function()
+		rs.RenderStepped:connect(function()
+			for i,v in pairs(lp.Character.Humanoid:GetPlayingAnimationTracks()) do
+				if v.Animation.AnimationId == 'rbxassetid://2877910736' or v.Animation.AnimationId == 'rbxassetid://2807049953' or v.Animation.AnimationId == 'rbxassetid://2809413000' then
+					v:Stop() 
+				end
+			end
+		end)
+	end)()
+	lp = game:GetService("Players").LocalPlayer
+	rs = game:GetService("RunService")
+
+	game:GetService("Workspace").Ignored.ChildAdded:Connect(function(child)
+		if child.Name == "BULLET_RAYS" and OWNER.Character:FindFirstChild("[Shotgun]") then
+			local mag = (lp.Character.HumanoidRootPart.Position - child.Position).Magnitude
+			if mag < 3.3 then
+				child:WaitForChild("PointLight"):Destroy()
+				child:WaitForChild("GunBeam").Color = ColorSequence.new(Color3.fromRGB(1, 38, 114), Color3.fromRGB(1, 38, 114))
+				child:WaitForChild("GunBeam").Brightness = 100
+				child:WaitForChild("GunBeam").Width0 = 0.78
+				child:WaitForChild("GunBeam").Width1 = 0.78
+				child:WaitForChild("GunBeam").TextureLength = -0.1
+			end
+		end
+	end)
+	end)()
+	
+	
+	    local OriginalKeyUpValue = 0
+    function StopAudio()
+        OWNER.Character.LowerTorso.BOOMBOXSOUND:Stop()
+    end
+    --//------------------------------------------------------------------------------------------\\--
+    function stop(ID, Key)
+        local cor = coroutine.wrap(function()
+            wait(OWNER.Character.LowerTorso.BOOMBOXSOUND.TimeLength-0.1)
+            if OWNER.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and OriginalKeyUpValue == Key then
+                StopAudio()
+            end
+        end)
+        cor()
+    end
+    --//------------------------------------------------------------------------------------------\\--
+    function Play(ID)
+        if OWNER.Backpack:FindFirstChild("[Boombox]") then
+            local Tool = nil
+            OWNER.Backpack["[Boombox]"].Parent = OWNER.Character
+            game.ReplicatedStorage.MainEvent:FireServer("Boombox", ID)
+            OWNER.Character["[Boombox]"].RequiresHandle = false
+            if OWNER.Character["[Boombox]"]:FindFirstChild("Handle") then
+            OWNER.Character["[Boombox]"].Handle:Destroy()
+            end
+            OWNER.Character["[Boombox]"].Parent = OWNER.Backpack
+            OWNER.PlayerGui.MainScreenGui.BoomboxFrame.Visible = false
+            if Tool ~= true then
+                if Tool then
+                    Tool.Parent = OWNER.Character
+                end
+            end
+            OWNER.Character.LowerTorso:WaitForChild("BOOMBOXSOUND")
+                local cor = coroutine.wrap(function()
+                    repeat wait() until OWNER.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and OWNER.Character.LowerTorso.BOOMBOXSOUND.TimeLength > 0.0001
+                    OriginalKeyUpValue = OriginalKeyUpValue+1
+                    stop(ID, OriginalKeyUpValue)
+                end)
+            cor()
+        end
+    end
+    
+        	function AnimPlay(ID, SPEED)
+		local animation = Instance.new('Animation', game:GetService("Workspace"))
+		animation.AnimationId = 'rbxassetid://'..ID
+		playing = OWNER.Character:WaitForChild("Humanoid"):LoadAnimation(animation)
+		playing:Play() 
+            if tonumber(SPEED) then
+                playing:AdjustSpeed(SPEED)
+            else
+                playing:AdjustSpeed(1)
+            end
+        animation:Destroy()
+    	end
+
+	function AnimStop(ID, SPEED)
+		for i,v in pairs(OWNER.Character:WaitForChild("Humanoid"):GetPlayingAnimationTracks()) do
+			if v.Animation.AnimationId == 'rbxassetid://'..ID then
+			  if tonumber(SPEED) then
+					v:Stop(SPEED)
+				else
+					v:Stop()
+				end
+			end
+		end
+	end
+end)
+FunPage.AddButton("DBZ-Dash", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
 
 local mouse = game.Players.LocalPlayer:GetMouse()
@@ -587,3 +702,21 @@ end)
     game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
             end
         end)
+	
+	assert(getrawmetatable)
+		gmt = getrawmetatable(game)
+		setreadonly(gmt, false)
+		old = gmt.__namecall
+		gmt.__namecall = newcclosure(function(self, ...)
+			local args = {
+				...
+			}
+			if tostring(args[1]) == "TeleportDetect" then
+				return
+			elseif tostring(args[1]) == "CHECKER_1" then
+				return
+			elseif tostring(args[1]) == "CHECKER" then
+				return
+			end
+			return old(self, ...)
+		end)
