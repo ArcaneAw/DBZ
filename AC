@@ -223,7 +223,7 @@ FunPage.AddButton("DBZ-Kame", function()
 		game:GetService("VirtualInputManager"):SendKeyEvent(true,"R",false,game)
 		coroutine.wrap(function()
 			wait(0.125)
-			Play(131179973)--131179973
+			Play(165970126)--131179973
 			blaster.Parent = lp.Backpack
 			rs.Stepped:Wait()
 			blaster.Parent = lp.Character
