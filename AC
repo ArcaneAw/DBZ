@@ -224,6 +224,8 @@ FunPage.AddButton("DBZ-Kame", function()
 		coroutine.wrap(function()
 			wait(0.125)
 			Play(165970126)--131179973
+			wait(2)
+			game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
 			blaster.Parent = lp.Backpack
 			rs.Stepped:Wait()
 			blaster.Parent = lp.Character
@@ -349,6 +351,16 @@ local mouse = game.Players.LocalPlayer:GetMouse()
 			local ld = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Swing)
 			ld:Play()
 			ld:AdjustSpeed(0.4)
+			wait(2.5)
+					local Plr = game.Players.LocalPlayer
+	
+	Plr.Character.Humanoid:UnequipTools()
+	wait(0.1)
+	Plr.Character.Humanoid:EquipTool(Plr.Backpack.Combat)
+	wait(0.1)
+	Plr.Character.Combat:Activate()
+	wait(1.3)
+	Plr.Character.Combat:Deactivate()
 		end
 	end)
 	
