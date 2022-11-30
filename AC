@@ -1,63 +1,57 @@
-function NovaNoti(Title, Text, Icon, Duration)
-	game.StarterGui:SetCore("SendNotification", {
-		Title = Title;
-		Text = Text;
-		Duration = 10;
-	})
-	local cor = coroutine.wrap(function()
-		local sound = Instance.new("Sound", game.CoreGui)
-		sound.SoundId = "rbxassetid://4590656842"
-		sound:Play()
-		wait(4)
-		sound:Destroy()
-	end)
-	cor()
+local library =
+    loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/ArcaneAw/NEWUI/main/AC"))()
+
+local Window = library:Window("DBZ")
+function LS(link)
+    loadstring(game:HttpGet(link))()
 end
 
-local UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/twink"))()
-local Library = UI.Load("DBZ")
-
-local FunPage = Library.AddPage("Fun!")
-
-FunPage.AddLabel("Fun!")
-FunPage.AddDropdown("None Chatted", {"Hey its me goku", "fly", "YOU'LL PAY FOR THAT", "Ultra Instinct Aura SFX", "MUI"}, function(Value)
-	local LocalPlayer = game:GetService("Players").LocalPlayer
-	local OldChar = LocalPlayer.Character
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
 	function p(id)
 		play(id, true, true)
 	end
-	function c(wrd)
-		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(wrd, "None")
-	end
-	if Value == "nasty" then
-		c("so you real nasty, huh?!")
-	else
-		c(Value)
-	end
+	
+		assert(getrawmetatable)--anti cheat
+		gmt = getrawmetatable(game)
+		setreadonly(gmt, false)
+		old = gmt.__namecall
+		gmt.__namecall = newcclosure(function(self, ...)
+			local args = {
+				...
+			}
+			if tostring(args[1]) == "TeleportDetect" then
+				return
+			elseif tostring(args[1]) == "CHECKER_1" then
+				return
+			elseif tostring(args[1]) == "CHECKER" then
+				return
+			end
+			return old(self, ...)
+		end)
 
-    if Value == "Hey its me goku" then
+Window:Button(
+    "GokuFly",
+    function()
+p(4471125043)
+LS('https://raw.githubusercontent.com/ArcaneAw/Shazam/main/AC')
+    end
+)
+
+Window:Button(
+    "Introduce",
+    function()
 		p(5612259294)
 	    local Swing = Instance.new('Animation')
 		Swing.AnimationId = "rbxassetid://4841397952"
 		local ld = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Swing)
 		ld:Play()
-	elseif Value == "fly" then
-		p(4471125043)
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/Shazam/main/AC'))()
-		wait(2.4)
-		p(838152983)
-    elseif Value == "Ultra Instinct Aura SFX" then
-		p(1825389232)
-    elseif Value == "MUI" then
-		p(2261507666)
-	end
-end)
-FunPage.AddButton("TP's [t j x z]", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
+    end
+)
+
+Window:Button(
+    "Tps",
+    function()
 	--[ Actions: t  j  x  z]--
-				 
-			
 			local Player = game:GetService("Players").LocalPlayer
 			local Character = Player.Character
 			local Root = Character.HumanoidRootPart 
@@ -86,39 +80,28 @@ play(6759981774, true, true)
 
 			end 
 			end)
-						local Player = game:GetService("Players").LocalPlayer
-			local Character = Player.Character
-			local Root = Character.HumanoidRootPart 
-			local ply = game.Players.LocalPlayer
-			local chr = ply.Character
+
 			
-			plr = game.Players.LocalPlayer
-			 
-			hum = plr.Character.HumanoidRootPart
-			 
-			mouse = plr:GetMouse()
-			 
-			 
-			 
-			mouse.KeyDown:connect(function(key)
-			 
-			if key == "t" then
-			
-play(2642969814, true, true)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -14)
-local mouse = game.Players.LocalPlayer:GetMouse()
-mouse.KeyDown:connect(function(key)
-	if key == "t" then
+	plr = game.Players.LocalPlayer
+	hum = plr.Character.HumanoidRootPart
+	mouse = plr:GetMouse()
+
+	mouse.KeyDown:connect(function(key)
+		if key == "t" then
+		play(2642969814, true, true)
 		local Swing = Instance.new('Animation');
 		Swing.AnimationId = "rbxassetid://8254765806"; --7009918446
 		local ld = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Swing)
 		ld:Play()
 		ld:AdjustSpeed(3)
-	end
-end)
-			end 
+			if mouse.Target then
+				hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 10, mouse.Hit.z)
+			end
+		end
+
+	end)
+
 			end)
-			
 			
 			local Player = game:GetService("Players").LocalPlayer
 			local Character = Player.Character
@@ -184,164 +167,12 @@ end)
 wait(0.6)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 45, -10) wait(0.1)
 play(153613030, true, true)
-
-
 			end 
-			end)
-end)
-FunPage.AddButton("DBZ-Kame", function()
-            OWNER = game:GetService("Players").LocalPlayer
-    RS = game:GetService("RunService")
-    TS = game:GetService("TweenService")
-    ANIM = OWNER.Character:WaitForChild("Animate")
-    
-    RS.RenderStepped:Connect(function()
-    local notifiedRespectFiltering = false
-		task.spawn(function()
-			pcall(function()
-				if OWNER and OWNER.Character and OWNER.Character:FindFirstChild("[Shotgun]") then		
-					OWNER.Character["[Shotgun]"].Handle.ShootSound.Playing = false
-				end
-			end)
-		end)
-    end)
-    
-	coroutine.wrap(function()
-	lp = game:GetService("Players").LocalPlayer
-	rs = game:GetService("RunService")
-	blaster = lp.Backpack:WaitForChild("[Shotgun]")
-	blaster.GripPos = Vector3.new(1, -0.1, 2.4)
-	blaster.TextureId = "rbxassetid://3536831972"
-	blaster.Handle.ShootBBGUI:Destroy()
-	blaster.Activated:Connect(function()
-		coroutine.wrap(function()
-			game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(0.2), {FieldOfView = 85}):Play()
-			wait(0.15)
-			game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(0.3), {FieldOfView = 70}):Play()
-		end)()
-		AnimPlay(2809419094,1.5)
-		game:GetService("VirtualInputManager"):SendKeyEvent(true,"R",false,game)
-		coroutine.wrap(function()
-			wait(0.125)
-			Play(165970126)--131179973
-			wait(2)
-			game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
-			blaster.Parent = lp.Backpack
-			rs.Stepped:Wait()
-			blaster.Parent = lp.Character
-		end)()
-
-	end)
-	_G.InvisGun = true
-	local ValidGuns = {}
-	function AddGun(Name)
-		table.insert(ValidGuns, "["..Name.."]")
-	end
-	AddGun("Shotgun")
-	game.Players.LocalPlayer.Character.DescendantAdded:Connect(function(Desc)
-		for i, v in pairs(ValidGuns) do
-			if Desc.Name == v and _G.InvisGun == true then
-				Desc:FindFirstChild('Default'):Destroy()
 			end
-		end
-	end)
-	coroutine.wrap(function()
-		rs.RenderStepped:connect(function()
-			for i,v in pairs(lp.Character.Humanoid:GetPlayingAnimationTracks()) do
-				if v.Animation.AnimationId == 'rbxassetid://2877910736' or v.Animation.AnimationId == 'rbxassetid://2807049953' or v.Animation.AnimationId == 'rbxassetid://2809413000' then
-					v:Stop() 
-				end
-			end
-		end)
-	end)()
-	lp = game:GetService("Players").LocalPlayer
-	rs = game:GetService("RunService")
-
-	game:GetService("Workspace").Ignored.ChildAdded:Connect(function(child)
-		if child.Name == "BULLET_RAYS" and OWNER.Character:FindFirstChild("[Shotgun]") then
-			local mag = (lp.Character.HumanoidRootPart.Position - child.Position).Magnitude
-			if mag < 3.3 then
-				child:WaitForChild("PointLight"):Destroy()
-				child:WaitForChild("GunBeam").Color = ColorSequence.new(Color3.fromRGB(1, 38, 114), Color3.fromRGB(1, 38, 114))
-				child:WaitForChild("GunBeam").Brightness = 100
-				child:WaitForChild("GunBeam").Width0 = 0.78
-				child:WaitForChild("GunBeam").Width1 = 0.78
-				child:WaitForChild("GunBeam").TextureLength = -0.1
-			end
-		end
-	end)
-	end)()
-	
-	
-	    local OriginalKeyUpValue = 0
-    function StopAudio()
-        OWNER.Character.LowerTorso.BOOMBOXSOUND:Stop()
-    end
-    --//------------------------------------------------------------------------------------------\\--
-    function stop(ID, Key)
-        local cor = coroutine.wrap(function()
-            wait(OWNER.Character.LowerTorso.BOOMBOXSOUND.TimeLength-0.1)
-            if OWNER.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and OriginalKeyUpValue == Key then
-                StopAudio()
-            end
-        end)
-        cor()
-    end
-    --//------------------------------------------------------------------------------------------\\--
-    function Play(ID)
-        if OWNER.Backpack:FindFirstChild("[Boombox]") then
-            local Tool = nil
-            OWNER.Backpack["[Boombox]"].Parent = OWNER.Character
-            game.ReplicatedStorage.MainEvent:FireServer("Boombox", ID)
-            OWNER.Character["[Boombox]"].RequiresHandle = false
-            if OWNER.Character["[Boombox]"]:FindFirstChild("Handle") then
-            OWNER.Character["[Boombox]"].Handle:Destroy()
-            end
-            OWNER.Character["[Boombox]"].Parent = OWNER.Backpack
-            OWNER.PlayerGui.MainScreenGui.BoomboxFrame.Visible = false
-            if Tool ~= true then
-                if Tool then
-                    Tool.Parent = OWNER.Character
-                end
-            end
-            OWNER.Character.LowerTorso:WaitForChild("BOOMBOXSOUND")
-                local cor = coroutine.wrap(function()
-                    repeat wait() until OWNER.Character.LowerTorso.BOOMBOXSOUND.SoundId == "rbxassetid://"..ID and OWNER.Character.LowerTorso.BOOMBOXSOUND.TimeLength > 0.0001
-                    OriginalKeyUpValue = OriginalKeyUpValue+1
-                    stop(ID, OriginalKeyUpValue)
-                end)
-            cor()
-        end
-    end
-    
-        	function AnimPlay(ID, SPEED)
-		local animation = Instance.new('Animation', game:GetService("Workspace"))
-		animation.AnimationId = 'rbxassetid://'..ID
-		playing = OWNER.Character:WaitForChild("Humanoid"):LoadAnimation(animation)
-		playing:Play() 
-            if tonumber(SPEED) then
-                playing:AdjustSpeed(SPEED)
-            else
-                playing:AdjustSpeed(1)
-            end
-        animation:Destroy()
-    	end
-
-	function AnimStop(ID, SPEED)
-		for i,v in pairs(OWNER.Character:WaitForChild("Humanoid"):GetPlayingAnimationTracks()) do
-			if v.Animation.AnimationId == 'rbxassetid://'..ID then
-			  if tonumber(SPEED) then
-					v:Stop(SPEED)
-				else
-					v:Stop()
-				end
-			end
-		end
-	end
-end)
-FunPage.AddButton("DBZ-Dash", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/boombox/main/AC", true))()
-
+)
+Window:Button(
+    "Dash",
+    function()
 local mouse = game.Players.LocalPlayer:GetMouse()
 	mouse.KeyDown:connect(function(key)
 		if key == "q" then
@@ -456,34 +287,12 @@ game:GetService('UserInputService').InputBegan:Connect(function(v, i)
             Posing = false;
         end;
     end;
-    
-            nolimit = true
-                local player = game.Players.LocalPlayer
-                local loopFunction = function()
-                    local Movement = game:GetService("Workspace").Players:WaitForChild(player.Name).BodyEffects.Movement
-                    local SlowDown = Movement:FindFirstChild('NoWalkSpeed') or Movement:FindFirstChild('ReduceWalk') or Movement:FindFirstChild('NoJumping')
-                    if SlowDown then
-                        SlowDown:Destroy()
-                    end
-                    local Reloading = player.Character:FindFirstChild('BodyEffects'):FindFirstChild('Reload')
-                    if Reloading then
-                        if Reloading.Value == true then
-                            Reloading.Value = false
-                        end
-                    end
-                end;
-                local Loop
-                local Start = function()
-                    Loop = game:GetService("RunService").Heartbeat:Connect(loopFunction);
-                end;
-                local Pause = function()
-                    Loop:Disconnect()
-                end;
-                Start()
-                repeat wait() until nolimit == false
-                Pause()
-end)
-FunPage.AddButton("Super x God [P]-[O]", function()
+    end
+)
+
+Window:Button(
+    "Super x God [P]-[O]",
+    function()
    --godlike
    if game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2') then
     game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):FindFirstChild('idle'):FindFirstChild('Animation2'):Destroy();
@@ -619,31 +428,162 @@ end);
             end;
         end;
     end);
-end)
-FunPage.AddLabel("Toggles!")
-FunPage.AddButton("Godmode", function()
-    	local localPlayer = game:GetService('Players').LocalPlayer;
+    end
+) 
+
+Window:Button(
+    "God",
+    function()
+    local localPlayer = game:GetService('Players').LocalPlayer;
 	local localCharacter = localPlayer.Character;
-	localCharacter:FindFirstChildWhichIsA('Humanoid').Health = 0;
-	for _,v in pairs(localPlayer.Character:GetChildren()) do
-		if v:IsA('MeshPart') or v:IsA('Accessory') then
-			v:Destroy();
-		end;
-	end;
+	localCharacter:FindFirstChildOfClass('Humanoid').Health = 0;
 	local newCharacter = localPlayer.CharacterAdded:Wait();
 	local spoofFolder = Instance.new('Folder');
 	spoofFolder.Name = 'FULLY_LOADED_CHAR';
 	spoofFolder.Parent = newCharacter;
-	newCharacter:WaitForChild('RagdollConstraints'):Destroy();
-	newCharacter:WaitForChild('BodyEffects'):WaitForChild('Defense'):Destroy();
-	newCharacter:WaitForChild('BodyEffects'):WaitForChild('Armor'):Destroy();
-	local spoofValue = Instance.new('BoolValue', newCharacter);
-	spoofValue.Name = 'RagdollConstraints';
-	local defValue = Instance.new('IntValue', game:GetService('Players').LocalPlayer.Character:FindFirstChild('BodyEffects'));
-	defValue.Name = 'Defense';
-	local armValue = Instance.new('IntValue', game:GetService('Players').LocalPlayer.Character:FindFirstChild('BodyEffects'));
-	armValue.Name = 'Armor';
-	
+	newCharacter:WaitForChild('BodyEffects').Dead:Destroy();
+	local spoofValue = Instance.new('BoolValue', newCharacter.BodyEffects);
+	spoofValue.Name = 'Dead';
+	wait()
+	--godblock/godbullet
+	local ps = game:GetService("Players")
+	local lp = ps.LocalPlayer
+	local char = lp.Character
+
+	char.BodyEffects.Armor:Destroy()
+	char.BodyEffects.Defense:Destroy()
+
+	local Clone1 = Instance.new("IntValue")
+	Clone1.Name = "Armor"
+	Clone1.Parent = char.BodyEffects
+
+	local Clone2 = Instance.new("NumberValue")
+	Clone2.Name = "Defense"
+	Clone2.Parent = char.BodyEffects
+	wait()
+	--walspeed
+	local d = {}
+	local e = {}
+	local g = {}
+	local h = {}
+	local j = {}
+	local k = {}
+	local function l()
+		local m = 3
+		local n = checkcaller
+		local o = getrawmetatable(game)
+		setreadonly(o, false)
+		local p = o.__index
+		local q = o.__newindex
+		local r = o.__namecall
+		o.__index =
+			newcclosure(
+				function(s, t)
+					if n() then
+					return p(s, t)
+				end
+					if d[s] and d[s][t] then
+					local u = d[s][t]
+					if u["IsCallback"] == true then
+						return u["Value"](s)
+					else
+						return u["Value"]
+					end
+				end
+					if g[t] then
+					local v = g[t]
+					if v["IsCallback"] == true then
+						return v["Value"](s)
+					else
+						return v["Value"]
+					end
+				end
+					if j[s] and j[s][t] then
+					return k[s][t]
+				end
+					return p(s, t)
+				end
+			)
+		o.__newindex =
+			newcclosure(
+				function(w, x, y)
+					if n() then
+					return q(w, x, y)
+				end
+					if e[w] and e[w][x] then
+					local z = e[w][x]
+					if z["Callback"] == nil then
+						return
+					else
+						z["Callback"](w, y)
+						return
+					end
+				end
+					if h[x] then
+					local A = h[x]
+					if A["Callback"] == nil then
+						return
+					else
+						A["Callback"](w, y)
+						return
+					end
+				end
+					if j[w] and j[w][x] then
+					local B = j[w][x]
+					if type(y) ~= B["Type"] then
+						error("bad argument #3 to '" .. x .. "' (" .. B["Type"] .. " expected, got " .. type(x) .. ")")
+					end
+					k[w][x] = y
+					return
+				end
+					return q(w, x, y)
+				end
+			)
+		local D = game.Players.LocalPlayer.Character.Humanoid
+		local function A(_)
+			local a0 = p(D, _)
+			local a1 = type(a0)
+			if not j[D] then
+				j[D] = {}
+			end
+			if not k[D] then
+				k[D] = {}
+			end
+			j[D][_] = {Type = a1}
+			k[D][_] = p(D, _)
+			local a2 = function()
+				j[D][_] = nil
+				k[D][_] = nil
+			end
+			return {remove = a2, Remove = a2}
+		end
+		A("WalkSpeed")
+		A("JumpPower")
+	end
+	l()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 22
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+	wait()
+	while wait() do
+		game.ReplicatedStorage.MainEvent:FireServer("Block", true)
+		wait()
+		for _, v in next, game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):GetPlayingAnimationTracks() do
+			if (v.Animation.AnimationId:match("rbxassetid://2788354405")) then
+				v:Stop();
+			end;
+		end;
+	end
+	wait()
+	while wait() do
+		pcall(function()
+			for i, v in pairs(game.Players:GetPlayers()) do
+				if (workspace.Players[game.Players.LocalPlayer.Name].HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude < 1 then
+					game.ReplicatedStorage.MainEvent:FireServer("Block", true)
+				end
+			end
+		end)
+	end  
+	wait(2)
 	while true do
 	local Animate = game.Players.LocalPlayer.Character.Animate
 	Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=845400520"
@@ -654,17 +594,12 @@ FunPage.AddButton("Godmode", function()
 	Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=845396048"
 	wait()
     end
-end)
-FunPage.AddButton("click while blocking", function()
-    	local Humanoid = game.Players.LocalPlayer.Character.Humanoid
-	local ps = game:GetService("Players")
-	local lp = ps.LocalPlayer
-	local char = lp.Character
-	local Block = char.BodyEffects:FindFirstChild("Block")
-			Block.Name = "Block"
-			Block.Parent = char.BodyEffects.Movement
-end)
-FunPage.AddButton("InvisMask", function()
+    end
+)
+
+Window:Button(
+    "Invisible Mask",
+    function()
 	local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position;
 	local k = game.Workspace.Ignored.Shop["[Surgeon Mask] - $25"]
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
@@ -679,9 +614,12 @@ FunPage.AddButton("InvisMask", function()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
 	end
 		game.Players.LocalPlayer.Character.Head.face:Destroy()
-end)
-FunPage.AddToggle("Reach", nil, function(e)
-        if e == true then
+    end
+) 
+
+Window:Button(
+    "Reach ON",
+    function()
 			game:GetService('RunService'):BindToRenderStep("Reach", 0 , function()
 				local success, err = pcall(function()
 					if game.Players.LocalPlayer.Character.BodyEffects.Attacking.Value == true then
@@ -704,31 +642,12 @@ FunPage.AddToggle("Reach", nil, function(e)
 					end
 				end)
 			end)
-	    elseif e == false then
-            game:GetService('RunService'):UnbindFromRenderStep("Reach")
-        end
-end)
-    local mouse = game.Players.LocalPlayer:GetMouse()
-        mouse.KeyDown:connect(function(key)
-            if key == "e" then
-    game:GetService('ReplicatedStorage'):FindFirstChild('MainEvent'):FireServer('BoomboxStop');
-            end
-        end)
-	
-	assert(getrawmetatable)
-		gmt = getrawmetatable(game)
-		setreadonly(gmt, false)
-		old = gmt.__namecall
-		gmt.__namecall = newcclosure(function(self, ...)
-			local args = {
-				...
-			}
-			if tostring(args[1]) == "TeleportDetect" then
-				return
-			elseif tostring(args[1]) == "CHECKER_1" then
-				return
-			elseif tostring(args[1]) == "CHECKER" then
-				return
-			end
-			return old(self, ...)
-		end)
+    end
+)
+
+Window:Button(
+    "Reach OFF",
+    function()
+    game:GetService('RunService'):UnbindFromRenderStep("Reach")
+end
+)
