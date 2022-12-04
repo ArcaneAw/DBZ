@@ -57,65 +57,41 @@ Window:Button(
 			local Root = Character.HumanoidRootPart 
 			local ply = game.Players.LocalPlayer
 			local chr = ply.Character
-			
 			plr = game.Players.LocalPlayer
-			 
 			hum = plr.Character.HumanoidRootPart
-			 
 			mouse = plr:GetMouse()
-			 
-			 
-			 
+			
+			
 			mouse.KeyDown:connect(function(key)
 			 
 			if key == "j" then
 			
-play(6759981774, true, true)
+                play(6759981774, true, true)
 
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(math.random(0, 15), 0, 0) wait(0.1)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(math.random(-10, 0), 0, 0) wait(0.1)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, math.random(0, 30), math.random(0, 20)) wait(0.1)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, math.random(0, 15)) wait(0.1)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -30) wait(0.1)
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(math.random(0, 15), 0, 0) wait(0.1)
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(math.random(-10, 0), 0, 0) wait(0.1)
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, math.random(0, 30), math.random(0, 20)) wait(0.1)
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, math.random(0, 15)) wait(0.1)
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -30) wait(0.1)
 
 			end 
 			end)
 
-			
-	plr = game.Players.LocalPlayer
-	hum = plr.Character.HumanoidRootPart
-	mouse = plr:GetMouse()
-
-	mouse.KeyDown:connect(function(key)
+		mouse.KeyDown:connect(function(key)
+		   
 		if key == "t" then
+		
+	if mouse.Target then
+	hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 10, mouse.Hit.z)
 		play(2642969814, true, true)
 		local Swing = Instance.new('Animation');
 		Swing.AnimationId = "rbxassetid://8254765806"; --7009918446
 		local ld = game:GetService('Players').LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):LoadAnimation(Swing)
 		ld:Play()
 		ld:AdjustSpeed(3)
-			if mouse.Target then
-				hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 10, mouse.Hit.z)
-			end
-		end
-
-	end)
-
-			end)
-			
-			local Player = game:GetService("Players").LocalPlayer
-			local Character = Player.Character
-			local Root = Character.HumanoidRootPart 
-			local ply = game.Players.LocalPlayer
-			local chr = ply.Character
-			
-			plr = game.Players.LocalPlayer
-			 
-			hum = plr.Character.HumanoidRootPart
-			 
-			mouse = plr:GetMouse()
-			 
-			 
+	    end
+    end
+end)
 			 
 			mouse.KeyDown:connect(function(key)
 			 
@@ -135,21 +111,6 @@ play(6759981774, true, true)
 end
 end)
 
-
-			local Player = game:GetService("Players").LocalPlayer
-			local Character = Player.Character
-			local Root = Character.HumanoidRootPart 
-			local ply = game.Players.LocalPlayer
-			local chr = ply.Character
-			
-			plr = game.Players.LocalPlayer
-			 
-			hum = plr.Character.HumanoidRootPart
-			 
-			mouse = plr:GetMouse()
-			 
-			 
-			 
 			mouse.KeyDown:connect(function(key)
 			 
 			if key == "z" then
@@ -167,7 +128,8 @@ end)
 wait(0.6)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 45, -10) wait(0.1)
 play(153613030, true, true)
-			end 
+		end
+	end)
 			end
 )
 Window:Button(
@@ -605,7 +567,7 @@ Window:Button(
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
 	if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
 		wait(.8)
-		fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+		fireclickdetector(k:FindFirstChild("ClickDetector"), 6)
 		toolf = game.Players.LocalPlayer.Backpack:WaitForChild("Mask")
 		toolf.Parent = game.Players.LocalPlayer.Character;
 		wait()
